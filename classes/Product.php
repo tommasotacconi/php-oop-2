@@ -8,7 +8,7 @@ class Product
   private float $price;
 
   // Constructor function
-  function __construct(string $name, string $category, string $type, float $price)
+  function __construct(string $name, Category $category, string $type, float $price)
   {
     $this->name = $name;
     $this->category = $category;
