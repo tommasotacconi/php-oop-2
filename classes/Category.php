@@ -1,5 +1,5 @@
 <?php 
-class Category
+class Category implements JsonSerializable
 {
   // Istance variables
   private string $name;
@@ -16,6 +16,15 @@ class Category
   function getIconImg() {
     return $this->icon_img;
   }
+
+  public function jsonSerialize(): mixed {
+    $data  = [
+      'name' => $this->name,
+      'icon_img' => $this->icon_img,
+    ];
+    return $data;
+  }
+
 }
 
 ?>
