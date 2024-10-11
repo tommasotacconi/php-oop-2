@@ -13,7 +13,9 @@ $topolino_gatto = new Toy('Topolino rumoroso', $cat_category, 3.0, 'https://raof
 // var_dump($crocchette_salmone_cane, $topolino_gatto, $crocchette_sgombro_gatto);
 
 // Call encoding function of Toy
-$json_data = '[' . $crocchette_salmone_cane->toJSON() . ',' . $crocchette_sgombro_gatto->toJSON() . ',' . $topolino_gatto->toJSON() . ']';
+$json_data = "
+'{\"crocchette_salmone_cane\": {$crocchette_salmone_cane->toJSON()}, \"crocchette_sgombro_gatto\": {$crocchette_sgombro_gatto->toJSON()}, \"topolino_gatto\": {$topolino_gatto->toJSON()} }'
+";
 
 //  var_dump($json_data);
 ?>

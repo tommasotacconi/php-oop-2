@@ -5,26 +5,48 @@
   box-sizing: border-box;
 }
 
+/* Font-family */
+@font-face {
+  font-family: 'Averta Standard';
+  src: url(FontsFree-Net-AvertaStandard-Regular.ttf);
+}
+
+h2 {
+  font-family: myFirstFont;
+  color: darkgreen;
+}
+
 /* Color pallette */
 :root {
+  --header-bg: #ff921e;
   --card-bg: #fb96449b;
 }
 
+/*All repeated dimensions */
+:root {
+  --logo-w: 15%;
+  --logo-pd: 20px;
+  --logo-fs: 2rem;
+  --nav-li-w: 26%;
+}
+
 /* Generics */
-main {
-  padding: 5px;
-  
-  font-family: 'Roboto';
+body {
+  font-family: 'Averta Standard', Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: var(--header-bg);
+  display: flex;
+
 }
 
 ul {
   list-style-type: none;
 }
 
-li {
-  display: flex;
-  flex-basis: calc(100% / 3);
-  aspect-ratio: 2.6;
+main {
+  padding: 5px;
 }
 
 img {
@@ -33,7 +55,82 @@ img {
 }
 
 /* Utilities */
-/* Layout */
+/* Header */
+h1.logo {
+  flex-basis: var(--logo-w);
+  padding: var(--logo-pd);
+  
+  text-align: center;
+  font-size: var(--logo-fs);
+}
+
+nav {
+  width: calc(100% - 2 * var(--logo-w));
+  height: 100%;
+  padding-top: var(--logo-pd);
+  line-height: var(--logo-fs);
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+nav li {
+  flex-basis: var(--nav-li-w);
+}
+
+nav li.search-box {
+  flex-basis: calc(100% - 3 * var(--nav-li-w));
+  
+  input {
+    width: 40%;
+    padding: 10px 14px;
+    font-size: 1.1rem;
+    font-family: 'Averta Standard', sans-serif;
+    margin-left: 10px;
+    border: 3px solid currentColor;
+    border-radius: 25px;
+    transition: width  3s;
+  }
+
+  input:focus {
+    width: 80%;
+  }
+
+  label {
+    cursor: pointer;
+  }
+}
+
+.login-box {
+  flex-basis: var(--logo-w);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.login-box .buttons-wrapper {
+  padding: 0 10px;
+  flex-grow: 1;
+}
+
+.text-wrapper {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+button {
+  padding: 10px 14px;
+  font-size: 1.1rem;
+  font-family: 'Averta Standard', sans-serif;
+  border: 3px solid currentColor;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* Main */
 .container-md {
   max-width: 1258px;
   margin: 0 auto;
@@ -54,13 +151,19 @@ img {
   padding: 10px 15px;
   background-color: var(--card-bg);
   flex-grow: 1;
-
+  
   display: flex;
   flex-direction: column;
 }
 
 ul.products-list {
   margin-top: 30px; 
+}
+
+main li {
+  display: flex;
+  flex-basis: calc(100% / 3);
+  aspect-ratio: 2.6;
 }
 
 li.product {
