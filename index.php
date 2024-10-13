@@ -36,10 +36,9 @@ echo "<script>const data = JSON.parse($json_data); </script>";
           <li>Gatti</li>
           <li class="search-box">
             <form action="">
-              <label for="product-input">
-                <i class="fa-solid fa-magnifying-glass"></i>
+              <label for="product-input" class="search-label fa-solid fa-magnifying-glass">
               </label>
-              <input type="text" placeholder="Cerca..." name="product-input" id="product-input">
+              <input type="text" placeholder="" name="product-input" id="product-input">
             </form>
           </li>
         </ul>

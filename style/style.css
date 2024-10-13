@@ -85,18 +85,33 @@ nav li.search-box {
   flex-basis: calc(100% - 3 * var(--nav-li-w));
   
   input {
-    width: 40%;
-    padding: 10px 14px;
-    font-size: 1.1rem;
-    font-family: 'Averta Standard', sans-serif;
-    margin-left: 10px;
+    width: 50%;
+    padding: 10px 14px 10px 30px;
+    position: relative;
     border: 3px solid currentColor;
     border-radius: 25px;
+    /* background-color: transparent; */
+
+    font-size: 1.1rem;
+    font-family: 'Averta Standard', sans-serif;
     transition: width  3s;
   }
 
   input:focus {
-    width: 80%;
+    width: 100%;
+  }
+
+  label.search-label {
+    position: relative;
+  }
+
+  .fa-magnifying-glass:before {
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    width: 15px;
+    translate: 0 25%;
+    z-index: 1;
   }
 
   label {
