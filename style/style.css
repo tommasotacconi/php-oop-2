@@ -22,12 +22,24 @@ h2 {
   --card-bg: #fb96449b;
 }
 
-/*All repeated dimensions */
+/* All repeated dimensions */
 :root {
   --logo-w: 15%;
   --logo-pd: 20px;
   --logo-fs: 2rem;
   --nav-li-w: 26%;
+}
+
+/* Layout size */
+.row {
+  margin: 0 -15px;
+  display: flex;
+  flex-wrap: wrap;  
+}
+
+.col {
+  padding: 0 15px;
+  margin-bottom: 20px;
 }
 
 /* Generics */
@@ -136,13 +148,65 @@ nav li.search-box {
   cursor: pointer;
 }
 
-button {
+button.btn {
   padding: 10px 14px;
   font-size: 1.1rem;
   font-family: 'Averta Standard', sans-serif;
   border: 3px solid currentColor;
   border-radius: 25px;
   cursor: pointer;
+}
+
+/* LOGIN PAGE (LOGIN AREA) */
+.login-box.logging {
+  .text-wrapper {
+    text-decoration: none;
+    color: #fff;
+    cursor: default;
+  }
+}
+
+.logo.logging {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.row.logging {
+  margin-top: 50px;
+  padding: 20px 0;
+}
+
+.col.logging {
+  flex-basis: calc(100% / 3);
+
+  input {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 10px;
+
+  font-size: 1.1rem;
+  font-family: 'Averta Standard', sans-serif;
+  border: 3px solid currentColor;
+  border-radius: 25px;
+  }
+
+  .btn {
+    margin-left: 15px;
+  }
+
+  .btn-sub {
+    margin-left: 0;
+  }
+  
+  .btn-sub:hover {
+    background-color: var(--header-bg);
+  }
+
+  .btn-res:hover {
+    background-color: #bc4022
+  }
 }
 
 /* Main */
@@ -153,14 +217,6 @@ button {
   padding: 10px 15px;
 }
 
-.row {
-  margin: 0 -15px;
-  display: flex;  
-}
-
-.col {
-  padding: 0 15px;
-}
 
 .card-content {
   padding: 10px 15px;
@@ -175,7 +231,7 @@ ul.products-list {
   margin-top: 30px; 
 }
 
-main li {
+main li.product {
   display: flex;
   flex-basis: calc(100% / 3);
   aspect-ratio: 2.6;

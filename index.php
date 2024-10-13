@@ -23,7 +23,7 @@ echo "<script>const data = JSON.parse($json_data); </script>";
   <div id="app">
     <header>
       <!-- header logo -->
-      <h1 class="Logo">Quattro zampe</h1>
+      <h1 class="logo">Quattro zampe</h1>
       <!-- central navbar -->
       <nav>
         <ul>
@@ -45,11 +45,11 @@ echo "<script>const data = JSON.parse($json_data); </script>";
       </nav>
       <!-- Login box and modal window -->
       <div class="login-box">
-        <div class="text-wrapper">
+        <div class="text-wrapper" @click="goToLogin()">
           Accedi o<br>registrati
         </div>
         <div class="buttons-wrapper">
-          <button>
+          <button class="btn" @click="goToLogin()">
             <i class="fa-regular fa-user"></i>
           </button>
         </div>
@@ -60,22 +60,23 @@ echo "<script>const data = JSON.parse($json_data); </script>";
       <div class="container-md">
 
         <!-- Contenuti mostrati sotto forma di elenco di singoli blocchi o card -->
-          <ul class="row products-list">
-            <li class="col product" v-for="product in productsList">
-              <img :src="product.img" alt="">
-              <div class="card-content">
-                <div class="text-content-wrapper">
-                  <span v-html="product.name" class="name"></span><br>
-                  <span v-html="product.type" class="type"></span><br>
-                  <span v-html="product.category.name" class="category"></span><br>
-                </div>
-                <div class="price-box">
-                  <span v-html="product.price" class="price"></span>
-                </div>
+        <ul class="row products-list">
+          <li class="col product" v-for="product in productsList">
+            <img :src="product.img" alt="">
+            <div class="card-content">
+              <div class="text-content-wrapper">
+                <span v-html="product.name" class="name"></span><br>
+                <span v-html="product.type" class="type"></span><br>
+                <span v-html="product.category.name" class="category"></span><br>
               </div>
-              <img class="category-img" :src="product.category['icon_img']" alt="">
-            </li>
-          </ul>     
+              <div class="price-box">
+                <span v-html="product.price" class="price"></span>
+              </div>
+            </div>
+            <img class="category-img" :src="product.category['icon_img']" alt="">
+          </li>
+        </ul>
+
       </div>
     </main>
   </div>
