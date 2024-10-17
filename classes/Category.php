@@ -2,8 +2,8 @@
 class Category implements JsonSerializable
 {
   // Istance variables
-  private string $name;
-  private string $icon_img;
+  protected string $name;
+  protected string $icon_img;
 
   // Constructor function
   function __construct($name, $icon_img)

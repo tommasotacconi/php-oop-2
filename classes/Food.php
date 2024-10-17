@@ -3,8 +3,8 @@
 class Food extends Product implements JsonSerializable
 {
   // Istance variables
-  private const string TYPE = 'food';
-  private string $compactness;
+  protected string $compactness;
+  use ValidForMemberSale;
 
   // Constructor function
   /**
@@ -12,14 +12,16 @@ class Food extends Product implements JsonSerializable
    *
    * @param string $name
    * @param Category $category
-   * @param string $type
    * @param string $price
+   * @param string $img
    * @param string $compactness
    */
-  function __construct(string $name, Category $category, float $price, string $img, string $compactness)
+  function __construct(string $name, Category $category, float $price, string $img, string $compactness, float $discount_percentage)
   {
-    parent::__construct($name, $category, Food::TYPE, $price, $img);
+    parent::__construct($name, $category, get_called_class(), $price, $img);
     $this->compactness = $compactness;
+    $this->setDiscount($discount_percentage);
+    $this->discounted_price = $this->getMemberDiscount();
   }
 
   // Methods
@@ -32,7 +34,8 @@ class Food extends Product implements JsonSerializable
  */
   // Function to serialize private variable, otherwise non visible during encoding
   public function jsonSerialize(): array {
-    return get_object_vars($this);
+    $data =  get_object_vars($this);
+    return $data;
   }
 
   // Function for enchoding this class to JSON

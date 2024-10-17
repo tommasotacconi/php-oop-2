@@ -79,7 +79,7 @@ h1.logo {
 nav {
   width: calc(100% - 2 * var(--logo-w));
   height: 100%;
-  padding-top: var(--logo-pd);
+  padding: var(--logo-pd) 0;
   line-height: var(--logo-fs);
 }
 
@@ -263,6 +263,15 @@ li.product {
 
 .price {
   font-size: 1.2rem;
+}
+
+.discounted-price {
+  margin-left: 10px;
+  color: #ff654e;
+}
+
+.previous-price {
+  text-decoration: line-through;
 }
 
 .price::after {

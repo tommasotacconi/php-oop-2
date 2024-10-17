@@ -1,7 +1,7 @@
 <?php 
 require_once __DIR__ . '/db/data.php';
 
-echo "<script>const data = JSON.parse($json_data); </script>";
+echo "<script>const data = JSON.parse($all_json_data); </script>";
 
 ?>
  
@@ -70,7 +70,8 @@ echo "<script>const data = JSON.parse($json_data); </script>";
                 <span v-html="product.category.name" class="category"></span><br>
               </div>
               <div class="price-box">
-                <span v-html="product.price" class="price"></span>
+                <span v-html="product.price" class="price" :class="{ 'previous-price': product.discounted_price }"></span>
+                <span class="price discounted-price" v-if="product.discounted_price" v-html="product.discounted_price"></span>
               </div>
             </div>
             <img class="category-img" :src="product.category['icon_img']" alt="">

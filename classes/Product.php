@@ -19,9 +19,6 @@ class Product implements JsonSerializable
   }
 
   // Methods
-  function getMemberDiscount20() {
-    return $this->price * 0.80;
-  }
 
 /*   public function jsonSerialize(): mixed {
     $data  = [
@@ -35,9 +32,10 @@ class Product implements JsonSerializable
  */
   // Function to serialize private variable, otherwise non visible during encoding
   public function jsonSerialize(): array {
-    $json_data = get_object_vars($this);
-    var_dump($json_data);
-    return $json_data;
+    $data =  array(
+      get_object_vars($this)
+    );
+    return $data;
   }
 
   // Function for enchoding this class to JSON
